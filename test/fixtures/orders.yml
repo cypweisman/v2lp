@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  credit_card: MyString
+  expiration: 2017-02-19
+  total: 9.99
+  showtime_id: 1
+
+two:
+  name: MyString
+  email: MyString
+  credit_card: MyString
+  expiration: 2017-02-19
+  total: 9.99
+  showtime_id: 1

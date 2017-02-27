@@ -1,0 +1,22 @@
+<div class="page">
+  <h1>Create Auditorium</h1>
+
+  <% if @errors %>
+    <div class="errors">
+      <%= render partial: "partials/errors", locals: { errors: @errors } %>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <%= form_for @auditorium, {action: "create"} do |f| %>
+      <fieldset>
+        <p>Room Number <%= f.number_field :room %></p>
+        <p>Capacity <%= f.number_field :capacity %></p>
+        <div class="button">
+          <%= f.submit "Create" %>
+        </div>
+        <%= link_to "Cancel", showtimes_path %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
