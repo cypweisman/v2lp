@@ -1,14 +1,22 @@
-.page {
-  margin: 50px;
-}
-
 .banner {
   background-color: #e8eaed;
+}
+
+.button {
+  height: 50px;
+  width:  100px;
+  border-radius: 10px;
+  color: #4e86e0;
 }
 
 .container-fluid {
   width: 100%;
 }
+
+.errors {
+  color: red;
+}
+
 
 .form {
   padding-top: 20px;
@@ -19,16 +27,10 @@ p {
   padding-bottom: 5px;
 }
 
-.button {
-  height: 50px;
-  width:  100px;
-  border-radius: 10px;
-  color: #4e86e0;
+.page {
+  margin: 50px;
 }
 
-.errors {
-  color: red;
-}
 
 .table {
   padding-top: 20px;
