@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1 {
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.movie {
+  text-align: center;
+  color: gray;
+  font-size: 25px;
+}
+
+ul {
+ list-style: none;
+ padding-bottom: 20px;
 }

@@ -10,11 +10,13 @@
   <div class="form">
     <%= form_for @auditorium, {action: "create"} do |f| %>
       <fieldset>
-        <p>Room Number <%= f.number_field :room %></p>
-        <p>Capacity <%= f.number_field :capacity %></p>
-        <div class="button">
-          <%= f.submit "Create" %>
+        <div class="form-group">
+          Room Number <%= f.number_field :room, class: "form-control col-sm-6" %>
         </div>
+        <div class="form-group">
+          Capacity <%= f.number_field :capacity, class: "form-control col-sm-6" %>
+        </div>
+        <%= f.submit "Create", class: "btn btn-primary" %>
         <%= link_to "Cancel", showtimes_path %>
       </fieldset>
     <% end %>
