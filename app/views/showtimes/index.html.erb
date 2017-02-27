@@ -1,0 +1,34 @@
+<div class="page">
+  <h1>Admin</h1>
+
+  <div class="admin">
+    <p><%= link_to "Create Showtime", new_showtime_path %></p>
+    <p><%= link_to "Create Auditorium", new_auditorium_path %></p>
+    <p><%= link_to "Create Movie", new_movie_path %></p>
+    <p><%= link_to "Orders", orders_path %></p>
+  </div>
+
+  <div>
+    <h2>All Showtimes</h2>
+    <table class="table">
+      <tr>
+         <th>Movie</th>
+         <th>Auditorium</th>
+         <th>Date</th>
+         <th>Start Time</th>
+         <th>End Time</th>
+         <th>Delete Showing</th>
+      </tr>
+      <% @showtimes.each do |showtime| %>
+        <tr>
+          <td><%= showtime.movie.title %></td>
+          <td><%= showtime.auditorium.room %></td>
+          <td><%= format_dateonly(showtime.showdate) %></td>
+          <td><%= format_timeonly(showtime.start_time) %></td>
+          <td><%=format_timeonly(showtime.end_time) %></td>
+          <td><%= link_to "Delete", showtime_path(showtime.id, :showtime =>showtime), :method => :delete %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

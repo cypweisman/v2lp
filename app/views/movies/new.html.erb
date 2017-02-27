@@ -1,0 +1,22 @@
+<div class="page">
+  <h1>Create Movie</h1>
+
+  <% if @errors %>
+    <div class="errors">
+      <%= render partial: "partials/errors", locals: { errors: @errors } %>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <%= form_for @movie, {action: "create"} do |f| %>
+      <fieldset>
+        <p>Movie Title <%= f.text_field :title %></p>
+        <p>Runtime <%= f.number_field :runtime %></p>
+        <div class="button">
+          <%= f.submit "Create" %>
+        </div>
+        <%= link_to "Cancel", showtimes_path %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

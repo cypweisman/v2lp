@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  showdate: 2017-02-19
+  start_time: 2017-02-19 13:37:33
+  end_time: 2017-02-19 13:37:33
+  tickets_sold: 1
+  movie_id: 1
+  auditorium_id: 1
+
+two:
+  showdate: 2017-02-19
+  start_time: 2017-02-19 13:37:33
+  end_time: 2017-02-19 13:37:33
+  tickets_sold: 1
+  movie_id: 1
+  auditorium_id: 1

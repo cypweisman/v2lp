@@ -1,0 +1,39 @@
+<div class="page">
+  <h1>Create Showtime</h1>
+
+  <% if @errors %>
+    <div class="errors">
+      <%= render partial: "partials/errors", locals: { errors: @errors } %>
+    </div>
+  <% end %>
+
+  <div >
+    <%= form_for @showtime, {action: "create"} do |f| %>
+      <fieldset>
+        <div class="form-group">
+          Show Date <%= f.date_field :showdate, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Start Time <%= f.datetime_field :start_time, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          End Time <%= f.datetime_field :end_time, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Movies <p><%= f.collection_select :movie_id, Movie.all, :id, :title, class: "form-control col-sm-6" %></p>
+        </div>
+        <div class="form-group">
+          Ticket Price <%= f.number_field :price, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Tickets Sold <%= f.number_field :tickets_sold, value: 0, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Auditorium Room <p><%= f.collection_select :auditorium_id, Auditorium.all, :id, :room, class: "form-control col-sm-6" %></p>
+        </div>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+        <%= link_to "Cancel", :back %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

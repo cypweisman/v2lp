@@ -1,0 +1,40 @@
+<div class="page">
+  <h1>Purchase Ticket</h1>
+
+  <% if @errors %>
+    <div class="errors">
+      <%= render partial: "partials/errors", locals: { errors: @errors } %>
+    </div>
+  <% end %>
+
+  <div>
+    <p>Movie: <%= @showtime.movie.title %></p>
+    <p>Showtime: <%= format_fulldate(@showtime.start_time) %> - <%= format_timeonly(@showtime.end_time) %></p>
+    <p>Total: $<%= @showtime.price %></p>
+  </div>
+
+  <div class="">
+    <%= form_for @order, {action: "create"} do |f| %>
+      <fieldset>
+        <div class="form-group">
+          Name: <%= f.text_field :name, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Email: <%= f.email_field :email, class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+         Credit Card: <%= f.text_field :credit_card, placeholder: "411111111111", class: "form-control col-sm-6" %>
+        </div>
+        <div class="form-group">
+          Expiration: <%= f.date_field :expiration, placeholder: "2017-02-27", class: "form-control col-sm-6" %>
+        </div>
+        <%= f.hidden_field :showtime_id, value: @showtime.id %>
+        <%= f.hidden_field :total, value: @showtime.price %>
+
+          <%= f.submit "Create", class: "btn btn-primary" %>
+
+        <%= link_to "Cancel", movies_path %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

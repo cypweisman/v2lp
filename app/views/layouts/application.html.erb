@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lp v2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Home", movies_path %></li>
+          <li><%= link_to "Admin", showtimes_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <div>
+      <img src="<%= asset_path( 'bkg.png' ) %>" alt="banner" width="800" height="300" padding-top: 20px; >
+    </div>
+    <%= yield %>
+  </body>
+</html>
