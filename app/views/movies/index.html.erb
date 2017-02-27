@@ -8,13 +8,13 @@
   <div>
     <ul class="list-group">
       <% @movies.each do |movie| %>
-        <li class="list-group-item" >
-          <p><%= movie.title %>, <%= movie.runtime %> minutes</p>
+        <li >
+          <p class="movie "><%= movie.title %>, <%= movie.runtime %> minutes</p>
           <ul class="list-group">
              <% movie.showtimes.each do |showtime| %>
               <% if !showtime.sold_out? && !showtime.past_date? %>
             <li class="list-group-item">
-               <p> -- <%= format_fulldate(showtime.start_time) %> --
+               <p><%= format_fulldate(showtime.start_time) %> --
                 <%= link_to "Purchase Ticket", new_order_path(:showtime =>showtime) %></p>
             </li>
               <% end %>

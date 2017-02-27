@@ -7,7 +7,7 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="ticket-info">
     <p>Movie: <%= @showtime.movie.title %></p>
     <p>Showtime: <%= format_fulldate(@showtime.start_time) %> - <%= format_timeonly(@showtime.end_time) %></p>
     <p>Total: $<%= @showtime.price %></p>

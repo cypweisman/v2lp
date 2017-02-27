@@ -8208,3 +8208,308 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 980ms (Views: 695.6ms | ActiveRecord: 230.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-27 10:14:16 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mShowtime Load (0.4ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 2]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 5]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered movies/index.html.erb within layouts/application (82.7ms)
+Completed 200 OK in 7669ms (Views: 7641.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/showtimes/new" for 127.0.0.1 at 2017-02-27 10:14:28 -0600
+Processing by ShowtimesController#new as HTML
+  Rendering showtimes/new.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mAuditorium Load (0.4ms)[0m  [1m[34mSELECT "auditoria".* FROM "auditoria"[0m
+  Rendered showtimes/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 127ms (Views: 123.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/showtimes" for 127.0.0.1 at 2017-02-27 10:14:30 -0600
+Processing by ShowtimesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P8/K8Kb1XB17DyXL9U0oF8kPZcN5RJzUWYV5IQ8Tb3U02vejrUzn92LMLTAuIwIpAT9z0CuG5nOXzCNzmLxMgA==", "showtime"=>{"showdate"=>"", "start_time"=>"", "end_time"=>"", "movie_id"=>"1", "price"=>"", "tickets_sold"=>"0", "auditorium_id"=>"1"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" IS NOT NULL)[0m  [["auditorium_id", 1]]
+  [1m[35m (23.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" IS NOT NULL) AND (end_time > NULL)[0m  [["auditorium_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" IS NOT NULL) AND (start_time > NULL)[0m  [["auditorium_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" IS NOT NULL) AND (start_time < NULL)[0m  [["auditorium_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering showtimes/new.html.erb within layouts/application
+  Rendered partials/_errors.html.erb (0.5ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT "auditoria".* FROM "auditoria"[0m
+  Rendered showtimes/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 918ms (Views: 98.8ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2017-02-27 10:14:32 -0600
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mShowtime Load (0.4ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.4ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.4ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered movies/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 123ms (Views: 119.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/orders/new?showtime=11" for 127.0.0.1 at 2017-02-27 10:14:35 -0600
+Processing by OrdersController#new as HTML
+  Parameters: {"showtime"=>"11"}
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered orders/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 125ms (Views: 103.5ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-02-27 10:14:51 -0600
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FGFL5oI8JL6qtnnh5b7b+1g+6mL48J3KSRuIByTiPcmZS37d4UKPEtK9Olcp5oL9E8TdzEIxdYbScPNzj6yCSA==", "order"=>{"name"=>"cy test", "email"=>"forjob1788@gmail.com", "credit_card"=>"4111111111111111", "expiration"=>"2017-03-03", "showtime_id"=>"11", "total"=>"6.0"}, "commit"=>"Create"}
+  [1m[36mShowtime Load (0.4ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (29.0ms)[0m  [1m[32mINSERT INTO "orders" ("name", "email", "credit_card", "expiration", "total", "showtime_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "cy test"], ["email", "forjob1788@gmail.com"], ["credit_card", "4111111111111111"], ["expiration", Fri, 03 Mar 2017], ["total", #<BigDecimal:7ffde5a805d0,'0.6E1',9(18)>], ["showtime_id", 11], ["created_at", 2017-02-27 16:14:51 UTC], ["updated_at", 2017-02-27 16:14:51 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" != $2)[0m  [["auditorium_id", 2], ["id", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" != $2) AND (end_time > '2017-06-03 10:30:00')[0m  [["auditorium_id", 2], ["id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" != $2) AND (start_time > '2017-06-03 10:30:00')[0m  [["auditorium_id", 2], ["id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" != $2) AND (start_time < '2017-06-03 10:30:00')[0m  [["auditorium_id", 2], ["id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "showtimes" WHERE "showtimes"."auditorium_id" = $1 AND ("showtimes"."id" != $2) AND (end_time > '2017-06-03 12:00:00')[0m  [["auditorium_id", 2], ["id", 11]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "showtimes" SET "tickets_sold" = $1, "updated_at" = $2 WHERE "showtimes"."id" = $3[0m  [["tickets_sold", 1], ["updated_at", 2017-02-27 16:14:51 UTC], ["id", 11]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_mailer/order_confirmation.html.erb within layouts/mailer
+  Rendered order_mailer/order_confirmation.html.erb within layouts/mailer (0.8ms)
+  Rendering order_mailer/order_confirmation.text.erb within layouts/mailer
+  Rendered order_mailer/order_confirmation.text.erb within layouts/mailer (0.5ms)
+OrderMailer#order_confirmation: processed outbound mail in 187.8ms
+Sent mail to forjob1788@gmail.com (2243.8ms)
+Date: Mon, 27 Feb 2017 10:14:52 -0600
+From: cy@lp.com
+To: forjob1788@gmail.com
+Message-ID: <58b4507c59ac7_be83ffeee2906084958d@Cyprianas-MacBook-Pro.local.mail>
+Subject: Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_58b4507c57eac_be83ffeee290608494ae";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_58b4507c57eac_be83ffeee290608494ae
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+forjob1788@gmail.com,
+
+Thank you for your purchase.
+
+Order Number: 39
+Credit Card: 4111111111111111
+Total: 6.0
+
+----==_mimepart_58b4507c57eac_be83ffeee290608494ae
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Order#39</h1>
+
+<p>cy test, thank you for your purchase.</p>
+
+<p>Movie Ticket: Batman</p>
+<p>Credit Card: 4111111111111111</p>
+<p>Total: $6.0</p>
+
+
+  </body>
+</html>
+
+----==_mimepart_58b4507c57eac_be83ffeee290608494ae--
+
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 3113ms (ActiveRecord: 33.7ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2017-02-27 10:14:54 -0600
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered movies/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 95ms (Views: 92.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/showtimes" for 127.0.0.1 at 2017-02-27 10:14:59 -0600
+Processing by ShowtimesController#index as HTML
+  Rendering showtimes/index.html.erb within layouts/application
+  [1m[36mShowtime Load (0.6ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" ORDER BY "showtimes"."showdate" ASC[0m
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered showtimes/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 102ms (Views: 98.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-02-27 10:15:02 -0600
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT  "showtimes".* FROM "showtimes" WHERE "showtimes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered orders/index.html.erb within layouts/application (91.0ms)
+Completed 200 OK in 165ms (Views: 158.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2017-02-27 10:15:11 -0600
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 1]]
+  [1m[36mAuditorium Load (0.3ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAuditorium Load (0.2ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.3ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShowtime Load (0.2ms)[0m  [1m[34mSELECT "showtimes".* FROM "showtimes" WHERE "showtimes"."movie_id" = $1[0m  [["movie_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "auditoria".* FROM "auditoria" WHERE "auditoria"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered movies/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 98ms (Views: 94.7ms | ActiveRecord: 2.2ms)
+
+

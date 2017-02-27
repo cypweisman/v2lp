@@ -1,12 +1,11 @@
 <div class="page">
-  <h1>Admin</h1>
 
-  <div class="admin">
-    <p><%= link_to "Create Showtime", new_showtime_path %></p>
-    <p><%= link_to "Create Auditorium", new_auditorium_path %></p>
-    <p><%= link_to "Create Movie", new_movie_path %></p>
-    <p><%= link_to "Orders", orders_path %></p>
-  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><%= link_to "Create Showtime", new_showtime_path %></li>
+    <li class="list-group-item"><%= link_to "Create Auditorium", new_auditorium_path %></li>
+    <li class="list-group-item"><%= link_to "Create Movie", new_movie_path %></li>
+    <li class="list-group-item"><%= link_to "Orders", orders_path %></li>
+   </ul>
 
   <div>
     <h2>All Showtimes</h2>

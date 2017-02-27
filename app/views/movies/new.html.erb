@@ -7,14 +7,16 @@
     </div>
   <% end %>
 
-  <div class="form">
+  <div >
     <%= form_for @movie, {action: "create"} do |f| %>
       <fieldset>
-        <p>Movie Title <%= f.text_field :title %></p>
-        <p>Runtime <%= f.number_field :runtime %></p>
-        <div class="button">
-          <%= f.submit "Create" %>
+        <div class="form-group">
+          Movie Title <%= f.text_field :title, class: "form-control col-sm-6" %>
         </div>
+        <div class="form-group">
+          Runtime <%= f.number_field :runtime, class: "form-control col-sm-6" %>
+        </div>
+          <%= f.submit "Create", class: "btn btn-primary" %>
         <%= link_to "Cancel", showtimes_path %>
       </fieldset>
     <% end %>
